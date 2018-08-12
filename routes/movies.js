@@ -3,8 +3,13 @@ const router = require('express-promise-router')();
 const passportConf = require('../passport');
 const MovieController = require('../controllers/movies');
 
+router.use(passport.authenticate('jwt', {session: false}));
+
 router.route('/popular')
-    .get(passport.authenticate('jwt', {session: false}), MovieController.popular);
+    .get(MovieController.popular);
+router.route('/search')
+    .get(MovieController.search);
 router.route('/:movieId')
-    .get(passport.authenticate('jwt', {session: false}), MovieController.details);
+    .get(MovieController.details);
+
 module.exports = router;

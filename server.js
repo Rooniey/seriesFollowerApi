@@ -17,9 +17,11 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 
 //Routes
-app.use('/movies', require('./routes/movies'));
+
 app.use('/users', require('./routes/users'));
 app.use('/series', require('./routes/series'));
+app.use('/movies', require('./routes/movies'));
+
 
 
 const port = process.env.PORT || 3000;
