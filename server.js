@@ -2,6 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 //load secrets 
 require('dotenv').load();
@@ -11,6 +12,8 @@ mongoose.Promise = global.Promise;
 mongoose.connect(CONNECTION_STRING, { useNewUrlParser: true });
 
 const app = express();
+
+app.use(cors());
 
 //Middlewares
 app.use(morgan('dev'));

@@ -7,5 +7,13 @@ module.exports = {
     details: async(req, res, next) => {
         const response = await seriesService.seriesDetails(req.params.seriesId);
         res.status(200).json(response.data);
+    },
+    airingToday: async(req, res, next) => {
+        const response = await seriesService.airingToday(req.query.page);
+        res.status(200).json(response.data);
+    },
+    similar: async(req, res, next) => {
+        const response = await seriesService.similarSeries(req.params.seriesId, req.query.page);
+        res.status(200).json(response.data);
     }
 }
