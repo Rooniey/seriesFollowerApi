@@ -8,7 +8,7 @@ signToken = user => {
         iss: 'SeriesFollowerApi',                           // issuer
         sub: user.id,                                       // subject
         iat: new Date().getTime(),                          // issued at
-        exp: new Date().setDate(new Date().getDate() + 1)   // expiration time 
+        exp: new Date().setDate(new Date().getDate() + 7)   // expiration time 
     }, JWT_SECRET );
 }
 
